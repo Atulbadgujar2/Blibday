@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { SW } from '../../helper';
+import { SW } from '../../helper/Dimensions';
 
 export default StyleSheet.create((Colors)=>({
     centerView:{

@@ -4,7 +4,7 @@ import { Container, VectorIcons } from '../../components';
 import { connect } from 'react-redux';
 import { SH, useThemeHelper } from '../../helper';
 import { SettingStyle, Styles } from '../../styles';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 const SettingScreen = (props) => {
   const { navigation } = props;

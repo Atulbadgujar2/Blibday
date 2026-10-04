@@ -9,7 +9,7 @@ import {
 import { Button, Container, Spacing, SvgIconsFiles, VectorIcons } from '../../components';
 import { MyCartScreenStyle, Styles } from '../../styles';
 import { CheckoutPaymentMethodData, MyCartData, SF, SH, useThemeHelper } from '../../helper';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 import { connect } from 'react-redux';
 import { CURRENCY } from '../../constants';
 
@@ -185,6 +185,5 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, null)(CheckoutScreen);
-
 
 

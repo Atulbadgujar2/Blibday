@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { SCREEN_WIDTH, SH, SW, useThemeHelper } from '../../helper';
 import { Styles } from '../../styles';
 import images from '../../images';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 const OrderSuccessScreen = (props) => {
   const { navigation } = props;

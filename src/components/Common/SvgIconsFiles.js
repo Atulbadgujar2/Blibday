@@ -1,6 +1,6 @@
 import React from "react";
 import SvgIconFiles from "../../images/svg";
-import { useThemeHelper } from '../../helper';
+import { useThemeHelper } from '../../theme/useThemeHelper';
 const SvgIcons = (props) => {
     const { colors } = useThemeHelper();
   const { name, size = 30, color = colors.primary_color } = props

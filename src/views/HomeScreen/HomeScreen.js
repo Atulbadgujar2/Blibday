@@ -6,7 +6,7 @@ import { SH, useThemeHelper, BottomTabGap, SCREEN_WIDTH, SW, SF, TopSellingProdu
 import { Styles, HomeScreenStyle } from '../../styles';
 import { COMMON_PADDING } from '../../constants';
 import images from '../../images';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 const { width } = Dimensions.get("window");
 const HomeScreen = (props) => {

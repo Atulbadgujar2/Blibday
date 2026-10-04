@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Image, Text, TouchableOpacity } from 'react-native';
 import { Container, Spacing } from '../../components';
 import { connect } from 'react-redux';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 import { Styles } from '../../styles';
 import { OnboardingData, SF, SH, useThemeHelper } from '../../helper';
 import AppIntroSlider from 'react-native-app-intro-slider';

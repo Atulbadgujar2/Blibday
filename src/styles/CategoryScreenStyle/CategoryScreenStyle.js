@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { SF, SW } from '../../helper';
+import { SF, SW } from '../../helper/Dimensions';
 import { CATEGORY_BOX_PADDING, Fonts } from '../../constants';
 
 export default StyleSheet.create((colors) => ({

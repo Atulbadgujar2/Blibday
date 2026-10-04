@@ -13,7 +13,7 @@ import { Styles } from "../../styles";
 import { connect } from 'react-redux';
 import images from "../../images";
 import { CURRENCY } from "../../constants";
-import { RouteName } from "../../routes";
+import RouteName from "../../routes/RouteName";
 
 const ReviewScreen = (props) => {
   const { navigation } = props;
@@ -110,5 +110,4 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, null)(ReviewScreen);
-
 

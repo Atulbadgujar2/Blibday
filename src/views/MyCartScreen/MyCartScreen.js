@@ -6,7 +6,7 @@ import { SH, useThemeHelper, MyCartData, SF, SW, BottomTabGap } from '../../help
 import { MyCartScreenStyle, Styles } from '../../styles';
 import images from '../../images';
 import { CartCards } from '../../components/Cart';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 import { CURRENCY } from '../../constants';
 import { useFocusEffect } from '@react-navigation/native';
 

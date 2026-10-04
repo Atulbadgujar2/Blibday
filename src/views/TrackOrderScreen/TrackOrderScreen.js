@@ -11,7 +11,7 @@ import { MyCartData, SH, useThemeHelper } from "../../helper";
 import { Styles } from "../../styles";
 import { connect } from 'react-redux';
 import images from "../../images";
-import { RouteName } from "../../routes";
+import RouteName from "../../routes/RouteName";
 
 const TrackOrdersScreen = (props) => {
   const { navigation } = props;
@@ -149,5 +149,4 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, null)(TrackOrdersScreen);
-
 

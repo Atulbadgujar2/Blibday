@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
-import { SCREEN_WIDTH, SF, SH, SW } from '../../helper';
+import { SCREEN_WIDTH, SF, SH, SW } from '../../helper/Dimensions';
 import { COMMON_PADDING, Fonts, TAB_BAR_HEIGHT } from '../../constants';
 
 export default StyleSheet.create((colors) => ({

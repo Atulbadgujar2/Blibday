@@ -4,7 +4,7 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { Container, NotFound, ProductColumn, Spacing, VectorIcons } from "../../components";
 import { AllBrands, AllCategoriesData, AllproductsData, SF, useThemeHelper } from '../../helper';
 import { Styles } from "../../styles";
-import { RouteName } from "../../routes";
+import RouteName from "../../routes/RouteName";
 import { connect } from "react-redux";
 
 const SearchScreen = (props) => {

@@ -11,7 +11,7 @@ import { AllBannerData, getStatusStyle, MyOrdersData, SCREEN_WIDTH, SH, SW, useT
 import { Styles } from "../../styles";
 import { connect } from 'react-redux';
 import { COMMON_PADDING } from "../../constants";
-import { RouteName } from "../../routes";
+import RouteName from "../../routes/RouteName";
 
 const MyOrdersScreen = (props) => {
   const { navigation } = props;
@@ -108,5 +108,4 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, null)(MyOrdersScreen);
-
 

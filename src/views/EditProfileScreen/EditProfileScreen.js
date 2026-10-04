@@ -4,7 +4,7 @@ import { AlertModal, Button, Container, Input, Spacing, SvgIcons, VectorIcons } 
 import { connect } from 'react-redux';
 import { SH, SF, useThemeHelper, SW, UserDetails } from '../../helper';
 import { AuthenticationStyle } from '../../styles';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 const EditProfileScreen = (props) => {
   const { navigation } = props;

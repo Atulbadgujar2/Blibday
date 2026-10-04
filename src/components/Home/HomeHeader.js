@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Animated } from 'react-native';
 import { SF, SH, useThemeHelper } from '../../helper';
 import { HomeScreenStyle, Styles } from '../../styles';
 import { GradientComponent, Spacing, VectorIcons } from '../Common';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 export default function SwipeToDelete(props) {
   const { navigation, placeholders, fadeAnim, translateY } = props;
@@ -92,5 +92,4 @@ export default function SwipeToDelete(props) {
     </View>
   );
 }
-
 

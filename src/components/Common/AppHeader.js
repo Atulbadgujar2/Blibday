@@ -5,7 +5,7 @@ import VectorIcon from './VectorIcons';
 import AppHeaderTitle from './AppHeaderTitle';
 import { Styles } from '../../styles';
 import AppHeaderGradient from './AppHeaderGradient';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 function AppHeader(props) {
   const { navigation, ifGradient = false, ifCart = false } = props;

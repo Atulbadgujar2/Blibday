@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { SF, SH, SW } from '../../helper';
+import { SF, SH, SW } from '../../helper/Dimensions';
 import { Fonts } from '../../constants';
 
 export default StyleSheet.create((colors) => ({

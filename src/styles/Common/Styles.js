@@ -1,5 +1,5 @@
 import { Platform, StyleSheet } from 'react-native';
-import { SF, SH, SW } from '../../helper';
+import { SF, SH, SW } from '../../helper/Dimensions';
 import { COMMON_PADDING, Fonts, HEADER_ICON_SIZE, ONBOADING_BOTTOM_SPACE, TAB_BAR_HEIGHT } from '../../constants';
 
 export default StyleSheet.create((colors) => ({

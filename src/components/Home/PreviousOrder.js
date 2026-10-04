@@ -4,7 +4,7 @@ import { SCREEN_WIDTH, SH, SW, useThemeHelper } from '../../helper';
 import { HomeScreenStyle } from '../../styles';
 import { Spacing} from '../Common';
 import { COMMON_PADDING, CURRENCY } from '../../constants';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 export default function PreviousOrder(props) {
   const { PreviousOrderData, item, index, navigation } = props;
@@ -70,5 +70,4 @@ export default function PreviousOrder(props) {
     </View>
   );
 }
-
 

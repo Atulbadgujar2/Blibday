@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { SH, useThemeHelper, MyWalletData, SW } from '../../helper';
 import { Styles } from '../../styles';
 import images from '../../images';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 import { CURRENCY } from '../../constants';
 
 const MyWalletScreen = (props) => {

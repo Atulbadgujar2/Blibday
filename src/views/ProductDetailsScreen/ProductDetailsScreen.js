@@ -6,7 +6,7 @@ import { AllBannerData, onShare, ProductDetailsData, ProductRattingData, SCREEN_
 import { Styles, ProductDetailsScreenStyle } from '../../styles';
 import { COMMON_PADDING, CURRENCY } from '../../constants';
 import Animated, { useAnimatedStyle, interpolate, useSharedValue } from 'react-native-reanimated';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 const ProductDetailsScreen = (props) => {
   const { navigation, route } = props
    const { productis } = route?.params || {};

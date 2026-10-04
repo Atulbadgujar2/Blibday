@@ -4,7 +4,7 @@ import { Container, Spacing, SvgIcons, Switch, VectorIcons } from '../../compone
 import { connect } from 'react-redux';
 import { SH, SF, useThemeHelper, SW, ProfileListArray, UserDetails, onShare } from '../../helper';
 import { ProfileStyle } from '../../styles';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 import { useDispatch } from 'react-redux';
 import { login_Action } from '../../redux/action';
 import { useTheme } from '../../theme/ThemeProvider';

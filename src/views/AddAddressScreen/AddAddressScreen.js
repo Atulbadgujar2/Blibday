@@ -1,11 +1,11 @@
 import React, { useContext, useState } from 'react';
 import { View, Text } from 'react-native';
-import MapView, { Marker } from 'react-native-maps';
+import MapView, { Marker } from '../../components/Common/NativeMap';
 import { AddAddressModal, Button, Container, Spacing, VectorIcons } from '../../components';
 import { SF, SH } from '../../helper';
 import { useTheme } from "../../theme/ThemeProvider";
 import { AddressScreenStyle, Styles } from '../../styles';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 import { connect } from 'react-redux';
 
 const defaultRegion = {
@@ -92,4 +92,3 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, null)(AddAddressScreen);
-

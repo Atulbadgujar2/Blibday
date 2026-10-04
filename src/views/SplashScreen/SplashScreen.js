@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Platform, View, Image} from 'react-native';
 import { Container } from '../../components';
 import { connect } from 'react-redux';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 import { SplashStyle } from '../../styles';
 import images from '../../images';
 import { useThemeHelper } from '../../helper';

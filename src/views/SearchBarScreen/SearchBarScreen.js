@@ -10,7 +10,7 @@ import { AllCategoriesData, AllproductsData, SH, SW, useThemeHelper } from '../.
 import { Container, Spacing, VectorIcons } from "../../components";
 import { Styles } from "../../styles";
 import { connect } from 'react-redux';
-import { RouteName } from "../../routes";
+import RouteName from "../../routes/RouteName";
 const recentSearches = ["Milk", "Bread", "Shampoo", "Noodles", "Apple"];
 const discoverMore = [
   { name: "Top Deals", icon: "pricetags-outline" },

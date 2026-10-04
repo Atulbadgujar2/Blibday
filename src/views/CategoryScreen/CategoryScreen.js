@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { SH, useThemeHelper, BottomTabGap, SCREEN_WIDTH, SW, AllBannerData, AllCategoriesData, AllSubcategoriesData } from '../../helper';
 import { Styles, CategoryScreenStyle } from '../../styles';
 import { COMMON_PADDING, String } from '../../constants';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 const CategoryScreen = (props) => {
   const { navigation } = props;

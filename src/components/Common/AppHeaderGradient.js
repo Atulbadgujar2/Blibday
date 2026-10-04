@@ -5,7 +5,7 @@ import VectorIcon from './VectorIcons';
 import { Styles } from '../../styles';
 import GradientComponent from './GradientComponent';
 import { COMMON_PADDING, Fonts } from '../../constants';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 function AppHeaderGradient(props) {
   const { navigation } = props;
   const { colors } = useThemeHelper();

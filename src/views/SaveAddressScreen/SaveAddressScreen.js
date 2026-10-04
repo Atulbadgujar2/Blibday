@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { SH, SF, SaveAddressData } from '../../helper';
 import { AddressScreenStyle, Styles } from '../../styles';
 import { useTheme } from "../../theme/ThemeProvider";
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 const SaveAddressScreen = (props) => {
   const { navigation } = props;

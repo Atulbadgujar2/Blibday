@@ -1,7 +1,7 @@
-import { SvgIconsFiles } from "../components";
+import SvgIconsFiles from "../components/Common/SvgIconsFiles";
 import { String } from "../constants";
 import images from "../images";
-import { RouteName } from "../routes";
+import RouteName from "../routes/RouteName";
 
 export const OnboardingData = [
   {

@@ -1,15 +1,13 @@
-import React, { useContext } from 'react';
-import { Styles } from "../styles";
-import { useTheme } from '../theme/ThemeProvider';
-import { RouteName } from '../routes';
+import React from 'react';
+import Styles from '../styles/Common/Styles';
+import RouteName from '../routes/RouteName';
 import { SF, SH } from './Dimensions';
-import { SvgIcons } from '../components';
+import SvgIcons from '../components/Common/SvgIcons';
 import { View, Share, Platform } from 'react-native';
 import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
+import { useThemeHelper } from '../theme/useThemeHelper';
 
-export const useThemeHelper = () => {
-  return useContext(useTheme);
-}
+export { useThemeHelper };
 
 export const Colors = () => {
   const { colors } = useThemeHelper();
@@ -18,7 +16,7 @@ export const Colors = () => {
 
 export const headerProps = (title = "", colors = {}, bgcolor = false) => {
   const HeaderStyles = Styles(colors)
-  return HeaderArray = {
+  return {
     headerShown: true,
     headerTintColor: colors.primary_color,
     headerShadowVisible: false,

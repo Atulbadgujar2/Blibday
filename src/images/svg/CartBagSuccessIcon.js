@@ -1,6 +1,6 @@
 import React from "react";
 import { Svg, Path, G } from "react-native-svg";
-import { useThemeHelper } from '../../helper';
+import { useThemeHelper } from '../../theme/useThemeHelper';
 
 const CartBagSuccessIcon = (props) => {
     const { colors } = useThemeHelper();

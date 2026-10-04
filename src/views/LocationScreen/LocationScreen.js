@@ -4,7 +4,7 @@ import { Button, Container, Spacing, VectorIcons } from '../../components';
 import { connect } from 'react-redux';
 import { SH, SF, useThemeHelper } from '../../helper';
 import { Styles } from '../../styles';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 const LocationScreen = (props) => {
   const { navigation } = props;

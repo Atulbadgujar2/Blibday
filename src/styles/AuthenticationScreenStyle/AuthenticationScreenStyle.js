@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { SF, SH, SW } from '../../helper';
+import { SF, SH, SW } from '../../helper/Dimensions';
 import { COMMON_PADDING, Fonts } from '../../constants';
 // SIGNIN, SIGNUP, EDIT PROFILE, FORGOT PASSWORD,  ======******** STYLES ********======
 export default StyleSheet.create((colors) => ({

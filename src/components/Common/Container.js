@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useNavigationState } from '@react-navigation/native';
 import propTypes from 'prop-types';
 import { useThemeHelper } from '../../helper';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 import { Styles } from '../../styles';
 function Container(props) {
   const {

@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, KeyboardAvoidingView, Platform, Image, Sc
 import { AuthenticationStyle } from '../../../styles';
 import { Button, Container, Spacing, Input, CheckBoxButton } from '../../../components';
 import { SH, useThemeHelper } from '../../../helper';
-import { RouteName } from '../../../routes';
+import RouteName from '../../../routes/RouteName';
 import images from '../../../images';
 
 const SignInScreen = (props) => {

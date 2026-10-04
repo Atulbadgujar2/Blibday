@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, Image } from 'react-native';
 import { SF, SH, useThemeHelper } from '../../helper';
 import { CategoryScreenStyle, Styles } from '../../styles';
 import { Spacing, SvgIcons, VectorIcons } from '../Common';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 import { CURRENCY } from '../../constants';
 
 export default function ProductColumn(props) {
@@ -82,5 +82,4 @@ export default function ProductColumn(props) {
     </View>
   );
 }
-
 

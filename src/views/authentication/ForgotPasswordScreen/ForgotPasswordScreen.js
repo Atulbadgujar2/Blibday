@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, KeyboardAvoidingView, Platform, ScrollVie
 import { AuthenticationStyle } from '../../../styles';
 import { Button, Container, Spacing, Input } from '../../../components';
 import { SH, useThemeHelper } from '../../../helper';
-import { RouteName } from '../../../routes';
+import RouteName from '../../../routes/RouteName';
 
 const ForgotPasswordScreen = (props) => {
 

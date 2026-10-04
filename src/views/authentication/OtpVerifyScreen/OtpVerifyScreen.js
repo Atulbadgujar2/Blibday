@@ -3,7 +3,7 @@ import { View, Text, KeyboardAvoidingView, Platform, ScrollView, TouchableOpacit
 import { AuthenticationStyle } from '../../../styles';
 import { Button, Container, Spacing, OtpInput, AlertModal } from '../../../components';
 import { SH, useThemeHelper } from '../../../helper';
-import { RouteName } from '../../../routes';
+import RouteName from '../../../routes/RouteName';
 import { useDispatch } from 'react-redux';
 import { login_Action } from '../../../redux/action';
 

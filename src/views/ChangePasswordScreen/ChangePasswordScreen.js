@@ -4,7 +4,7 @@ import { Button, Container, Input, Spacing } from '../../components';
 import { connect } from 'react-redux';
 import { SH, useThemeHelper } from '../../helper';
 import { AuthenticationStyle } from '../../styles';
-import { RouteName } from '../../routes';
+import RouteName from '../../routes/RouteName';
 
 const ChangePasswordScreen = (props) => {
   const { navigation } = props;
