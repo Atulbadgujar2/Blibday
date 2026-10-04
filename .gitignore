@@ -12,3 +12,8 @@ android/app/*.jks
 ios/Pods/
 ios/build/
 ios/.xcode.env.local
+
+# Expo
+.expo
+dist/
+web-build/

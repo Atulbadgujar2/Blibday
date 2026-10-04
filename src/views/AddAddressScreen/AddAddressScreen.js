@@ -8,6 +8,13 @@ import { AddressScreenStyle, Styles } from '../../styles';
 import { RouteName } from '../../routes';
 import { connect } from 'react-redux';
 
+const defaultRegion = {
+  latitude: 28.6139,
+  longitude: 77.2090,
+  latitudeDelta: 0.01,
+  longitudeDelta: 0.01,
+};
+
 const AddAddressScreen = (props) => {
   const { navigation } = props;
   const { colors } = useContext(useTheme);
@@ -22,15 +29,10 @@ const AddAddressScreen = (props) => {
   };
   const [state, setState] = useState(stateArray);
 
-  const [region, setRegion] = useState({
-    latitude: 40.7128, // New York City
-    longitude: -74.0060,
-    latitudeDelta: 0.01,
-    longitudeDelta: 0.01,
-  });
+  const [region, setRegion] = useState(defaultRegion);
   const [marker, setMarker] = useState({
-    latitude: 40.7128,
-    longitude: -74.0060,
+    latitude: defaultRegion.latitude,
+    longitude: defaultRegion.longitude,
   });
 
   const handleConfirm = () => {
@@ -69,10 +71,12 @@ const AddAddressScreen = (props) => {
         <View style={AddressStyle.AddAddressDetailsView}>
           <View style={AddressStyle.AddAddressHeadingView}>
             <VectorIcons iconFamily="MaterialDesignIcons" name={'map-marker-radius-outline'} size={SF(25)} color={colors.primary_color} />
-            <Text style={AddressStyle.AddAddressHeadingText}>London EC2A 4DP</Text>
+            <Text style={AddressStyle.AddAddressHeadingText}>Selected location</Text>
           </View>
           <Spacing space={SH(10)} />
-          <Text style={AddressStyle.AddAddressText}>18 High Street, Shoreditch, London EC2A 4DP, United Kingdom</Text>
+          <Text style={AddressStyle.AddAddressText}>
+            Latitude: {marker.latitude.toFixed(5)}, Longitude: {marker.longitude.toFixed(5)}
+          </Text>
         </View>
         <Spacing space={SH(20)} />
         <Button title="Confirm Location" onPress={handleConfirm} />
@@ -88,5 +92,4 @@ const mapStateToProps = (state) => {
   };
 };
 export default connect(mapStateToProps, null)(AddAddressScreen);
-
 

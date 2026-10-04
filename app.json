@@ -1,4 +1,10 @@
 {
-  "name": "GreenMart",
-  "displayName": "GreenMart"
+  "expo": {
+    "name": "GreenMart",
+    "slug": "greenmart",
+    "version": "1.0.0",
+    "web": {
+      "bundler": "metro"
+    }
+  }
 }
