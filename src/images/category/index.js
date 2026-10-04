@@ -1,0 +1,25 @@
+const categoryimages = {
+    cat1: require('./1.png'),
+    cat2: require('./2.png'),
+    cat3: require('./3.png'),
+    cat4: require('./4.png'),
+    cat5: require('./5.png'),
+    cat6: require('./6.png'),
+    cat7: require('./7.png'),
+    cat8: require('./8.png'),
+    cat9: require('./9.png'),
+    cat10: require('./10.png'),
+    cat11: require('./11.png'),
+    cat12: require('./12.png'),
+    cat13: require('./13.png'),
+    cat14: require('./14.png'),
+    cat15: require('./15.png'),
+    cat16: require('./16.png'),
+    cat17: require('./17.png'),
+    cat18: require('./18.png'),
+    cat19: require('./19.png'),
+    cat20: require('./20.png'),
+    cat58X58: require('./58X58.png'),
+
+}
+export default categoryimages;

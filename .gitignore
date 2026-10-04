@@ -1,0 +1,13 @@
+node_modules
+.DS_Store
+.bundle/
+vendor/
+android/.gradle/
+android/local.properties
+android/**/build/
+android/app/src/main/assets/index.android.bundle
+android/app/*.keystore
+android/app/*.jks
+ios/Pods/
+ios/build/
+ios/.xcode.env.local

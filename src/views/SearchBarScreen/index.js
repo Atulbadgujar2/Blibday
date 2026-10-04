@@ -1,0 +1,1 @@
+export {default as SearchBarScreen} from './SearchBarScreen';
