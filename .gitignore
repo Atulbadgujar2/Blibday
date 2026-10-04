@@ -3,6 +3,7 @@ node_modules
 .bundle/
 vendor/
 android/.gradle/
+android/android/
 android/local.properties
 android/**/build/
 android/app/src/main/assets/index.android.bundle
