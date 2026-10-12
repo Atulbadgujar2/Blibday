@@ -1,5 +1,5 @@
 import React,{useContext} from 'react';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useThemeHelper } from '../../helper';
 import { useTheme } from "../../theme/ThemeProvider";
 
