@@ -1,5 +1,5 @@
 const Strings = {
-  appname: "GreenMart",
+  appname: "Blibday",
   label: {
       "Home": "Home",
       "MyProfile": "My Profile",

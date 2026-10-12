@@ -27,7 +27,7 @@ const SignInScreen = (props) => {
         <ScrollView contentContainerStyle={SignInStyle.scrollview} keyboardShouldPersistTaps="handled">
         <View style={[SignInStyle.container,SignInStyle.formMainView]}>
               <Spacing space={SH(20)} />
-              <Text style={SignInStyle.logoTextBig}>Welcome Back to GreenMart!</Text>
+              <Text style={SignInStyle.logoTextBig}>Welcome Back to Blibday!</Text>
               <Spacing space={SH(30)} />
             {/* INPUT FORM */}
               <View>

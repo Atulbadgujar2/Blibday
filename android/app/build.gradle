@@ -26,10 +26,10 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.greenmart"
+    namespace "com.blibday"
 
     defaultConfig {
-        applicationId "com.greenmart"
+        applicationId "com.blibday"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

@@ -28,7 +28,7 @@ const SignUpScreen = (props) => {
         <ScrollView contentContainerStyle={SignUpStyle.scrollview} keyboardShouldPersistTaps="handled">
         <View style={[SignUpStyle.container,SignUpStyle.formMainView]}>
               <Spacing space={SH(20)} />
-              <Text style={SignUpStyle.logoTextBig}>Welcome to GreenMart!</Text>
+              <Text style={SignUpStyle.logoTextBig}>Welcome to Blibday!</Text>
               <Spacing space={SH(30)} />
             {/* INPUT FORM */}
               <View>

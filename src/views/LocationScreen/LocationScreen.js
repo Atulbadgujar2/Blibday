@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, ScrollView, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import { Text, View, ScrollView, TouchableOpacity, KeyboardAvoidingView, Platform } from 'react-native';
 import { Button, Container, Spacing, VectorIcons } from '../../components';
 import { connect } from 'react-redux';
 import { SH, SF, useThemeHelper } from '../../helper';

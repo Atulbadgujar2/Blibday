@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "GreenMart.app"
-               BlueprintName = "GreenMart"
-               ReferencedContainer = "container:GreenMart.xcodeproj">
+               BuildableName = "Blibday.app"
+               BlueprintName = "Blibday"
+               ReferencedContainer = "container:Blibday.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "GreenMartTests.xctest"
-               BlueprintName = "GreenMartTests"
-               ReferencedContainer = "container:GreenMart.xcodeproj">
+               BuildableName = "BlibdayTests.xctest"
+               BlueprintName = "BlibdayTests"
+               ReferencedContainer = "container:Blibday.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GreenMart.app"
-            BlueprintName = "GreenMart"
-            ReferencedContainer = "container:GreenMart.xcodeproj">
+            BuildableName = "Blibday.app"
+            BlueprintName = "Blibday"
+            ReferencedContainer = "container:Blibday.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "GreenMart.app"
-            BlueprintName = "GreenMart"
-            ReferencedContainer = "container:GreenMart.xcodeproj">
+            BuildableName = "Blibday.app"
+            BlueprintName = "Blibday"
+            ReferencedContainer = "container:Blibday.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "GreenMart",
-    "slug": "greenmart",
+    "name": "Blibday",
+    "slug": "blibday",
     "version": "1.0.0",
     "web": {
       "bundler": "metro"

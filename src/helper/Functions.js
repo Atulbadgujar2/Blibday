@@ -113,7 +113,7 @@ export const getCurrentTime = () => {
 };
 
  export const onShare = async () => {
-    const appLink = 'https://play.google.com/store/apps/details?id=com.greenmart';
+    const appLink = 'https://play.google.com/store/apps/details?id=com.blibday';
     await Share.share({
       message: `Download my app from here:\n${appLink}`,
     });
