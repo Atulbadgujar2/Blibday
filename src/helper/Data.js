@@ -1859,3 +1859,18 @@ export const MyCartData = [
   { id: "P6", name: "Banana Robusta", weight: "1 dozen", price: 60, oldPrice: 80, image: images.product10, ifwishlist: true, qty: 1, parentChildCategoryId: "1-1-2" },
   { id: "P31", name: "Potato", weight: "1 kg", price: 30, oldPrice: 40, image: images.product17, qty: 1, parentChildCategoryId: "1-2-2" },
 ];
+
+//New Code added 
+export const HomeCategoryShortcuts = [
+  { id: 'mobiles', name: 'Mobiles', icon: 'smartphone', color: '#2874F0', tint: '#EAF2FF' },
+  { id: 'fashion', name: 'Fashion', icon: 'shopping-bag', color: '#C2185B', tint: '#FCEAF1' },
+  { id: 'electronics', name: 'Electronics', icon: 'monitor', color: '#1565C0', tint: '#E8F1FC' },
+  { id: 'home', name: 'Home', icon: 'home', color: '#00897B', tint: '#E6F5F2' },
+  { id: 'appliances', name: 'Appliances', icon: 'tool', color: '#5E35B1', tint: '#F0EBFA' },
+  { id: 'beauty', name: 'Beauty', icon: 'heart', color: '#D81B60', tint: '#FCEAF1' },
+  { id: 'baby', name: 'Baby', icon: 'users', color: '#EF6C00', tint: '#FFF1E3' },
+  { id: 'toys', name: 'Toys', icon: 'gift', color: '#F9A825', tint: '#FFF7DE' },
+  { id: 'sports', name: 'Sports', icon: 'activity', color: '#00897B', tint: '#E6F5F2' },
+  { id: 'furniture', name: 'Furniture', icon: 'grid', color: '#6D4C41', tint: '#F3ECE8' },
+  { id: 'books', name: 'Books', icon: 'book-open', color: '#3949AB', tint: '#ECEEFA' },
+];

@@ -339,6 +339,55 @@ export default StyleSheet.create((colors) => ({
     height: SW(6),
     borderRadius: SW(6),
     marginHorizontal: SW(4),
-  }
+  },
+  homeCategoryShortcutList: {
+    paddingVertical: SH(12),
+    backgroundColor: colors.background_box_color,
+    marginBottom: SH(8),
+  },
+  homeCategoryShortcutContent: {
+    paddingHorizontal: SW(COMMON_PADDING),
+  },
+  homeCategoryShortcutSeparator: {
+    width: SW(14),
+  },
+  homeCategoryShortcut: {
+    alignItems: 'center',
+    width: SW(68),
+  },
+  homeCategoryShortcutIconCircle: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: SW(56),
+    height: SW(56),
+    borderRadius: SW(28),
+    borderWidth: 1,
+    borderColor: colors.gainsboro,
+    backgroundColor: colors.white,
+  },
+  homeCategoryShortcutLabel: {
+    marginTop: SH(5),
+    width: '100%',
+    textAlign: 'center',
+    fontFamily: Fonts.Font_Medium,
+    fontSize: SF(11),
+    color: colors.black_to_white_color,
+  },
+  exploreCategoryListContainer: {
+    paddingVertical: SH(10),
+  },
+  exploreCategoryListContent: {
+    alignItems: 'center',
+    paddingHorizontal: SW(COMMON_PADDING),
+  },
+  exploreCategorySeparator: {
+    width: SW(10),
+  },
+  exploreCategoryTile: {
+    alignItems: 'center',
+    borderRadius: SW(18),
+    paddingHorizontal: SW(5),
+    paddingVertical: SH(8),
+  },
 })
 );

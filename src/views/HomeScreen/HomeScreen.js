@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { ScrollView, Image, TouchableOpacity, View, Text, FlatList, Dimensions, Animated } from 'react-native';
 import { Container, Spacing, Slider, GradientComponent, VectorIcons, ProductColumn, ProductSmall, HomeHeader, PreviousOrder } from '../../components';
 import { connect } from 'react-redux';
-import { SH, useThemeHelper, BottomTabGap, SCREEN_WIDTH, SW, SF, TopSellingProductData, PreviousOrderData, FreshVeggiesProductData, FreshFruitsProductData, AllBannerData, AllCategoriesData } from '../../helper';
+import { SH, useThemeHelper, BottomTabGap, SCREEN_WIDTH, SW, SF, TopSellingProductData, PreviousOrderData, FreshVeggiesProductData, FreshFruitsProductData, AllBannerData, AllCategoriesData,HomeCategoryShortcuts } from '../../helper';
 import { Styles, HomeScreenStyle } from '../../styles';
 import { COMMON_PADDING } from '../../constants';
 import images from '../../images';
@@ -161,7 +161,7 @@ const HomeScreen = (props) => {
           setColors={[colors.light_box, item.color]}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
-          styles={{
+           styles={{
             borderRadius: 60,
             marginLeft: index == 0 ? SW(COMMON_PADDING) : 0,
             marginRight: index == (AllCategoriesData.length - 1) ? SW(COMMON_PADDING) : 0,
@@ -176,12 +176,32 @@ const HomeScreen = (props) => {
             >
               <Image source={item.image} style={styles.categoryImage} />
             </View>
-            <Text style={styles.categoryText}>{item?.shortName}</Text>
+           <Text style={styles.categoryText}>{item?.shortName}</Text>
           </View>
         </GradientComponent>
       </TouchableOpacity>
     );
   };
+
+  const renderHomeCategoryShortcut = ({ item }) => (
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() => navigation.navigate(RouteName.CATEGORY_SCREEN)}
+      style={styles.homeCategoryShortcut}
+    >
+      <View style={[styles.homeCategoryShortcutIconCircle, { backgroundColor: item.tint }]}>
+        <VectorIcons
+          iconFamily="Feather"
+          name={item.icon}
+          size={SF(23)}
+          color={item.color}
+        />
+      </View>
+      <Text style={styles.homeCategoryShortcutLabel} numberOfLines={1}>
+        {item.name}
+      </Text>
+    </TouchableOpacity>
+  );
 
   return (
     <Container containerPropStyle={Style.themeBackgroundColor}
@@ -204,6 +224,20 @@ const HomeScreen = (props) => {
           <Spacing space={SH(5)} />
         </View>
 
+        {/* Home category shortcuts */}
+        <View style={styles.homeCategoryShortcutList}>
+          <FlatList
+            data={HomeCategoryShortcuts}
+            keyExtractor={(item) => item.id}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={styles.homeCategoryShortcutContent}
+            ItemSeparatorComponent={() => <View style={styles.homeCategoryShortcutSeparator} />}
+            initialNumToRender={6}
+            renderItem={renderHomeCategoryShortcut}
+          />
+        </View>
+
         {/* Header Start */}
         <View style={[Style.paddingHorizontalCommon]}>
           <View style={styles.commonHeaderView}>
@@ -224,17 +258,16 @@ const HomeScreen = (props) => {
           start={{ x: 0, y: 0 }}
           end={{ x: 0, y: 1 }}
         >
-          <View style={{
-            paddingVertical: 10,
-          }}>
+          <View style={styles.exploreCategoryListContainer}>
             <FlatList
               data={AllCategoriesData}
               keyExtractor={(item) => item.id.toString()}
               horizontal
               showsHorizontalScrollIndicator={false}
+              contentContainerStyle={styles.exploreCategoryListContent}
               snapToAlignment="center"
               pagingEnabled={false}
-              ItemSeparatorComponent={() => <View style={{ width: 10 }} />}
+              ItemSeparatorComponent={() => <View style={styles.exploreCategorySeparator} />}
               renderItem={renderCategory}
             />
           </View>
