@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ScrollView, Image, TouchableOpacity, View, Text, FlatList, Dimensions, Animated, StyleSheet } from 'react-native';
+import { ScrollView, Image, TouchableOpacity, View, Text, FlatList, Dimensions, Animated, StyleSheet, Pressable } from 'react-native';
 import { Container, Spacing, Slider, GradientComponent, VectorIcons, ProductColumn, ProductSmall, HomeHeader, PreviousOrder } from '../../components';
 import { connect } from 'react-redux';
 import { SH, useThemeHelper, BottomTabGap, SCREEN_WIDTH, SW, SF, TopSellingProductData, PreviousOrderData, FreshVeggiesProductData, FreshFruitsProductData, AllBannerData, AllCategoriesData, HomeCategoryShortcuts, ShopsData } from '../../helper';
@@ -12,6 +12,120 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const { width } = Dimensions.get("window");
+
+const ShopLocationSelector = () => {
+  const [selected, setSelected] = useState('market');
+  const marketScale = useRef(new Animated.Value(1)).current;
+  const nearbyScale = useRef(new Animated.Value(1)).current;
+
+  const options = [
+    {
+      id: 'market',
+      title: 'Indore',
+      subtitle: 'Wholesale Market',
+      icon: 'shopping-bag',
+      scale: marketScale,
+    },
+    {
+      id: 'nearby',
+      title: 'Nearby',
+      subtitle: 'Around your location',
+      icon: 'map-pin',
+      scale: nearbyScale,
+    },
+  ];
+
+  const handleSelect = (id, scale) => {
+    setSelected(id);
+
+    Animated.sequence([
+      Animated.spring(scale, {
+        toValue: 0.94,
+        friction: 5,
+        useNativeDriver: true,
+      }),
+      Animated.spring(scale, {
+        toValue: 1,
+        friction: 4,
+        tension: 150,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  };
+
+  return (
+    <View style={shopStyles.locationContainer}>
+      <Text style={shopStyles.locationHeading}>Explore shops</Text>
+
+      <View style={shopStyles.locationRow}>
+        {options.map((item) => {
+          const active = selected === item.id;
+
+          return (
+            <Animated.View
+              key={item.id}
+              style={[
+                shopStyles.locationAnimated,
+                { transform: [{ scale: item.scale }] },
+              ]}
+            >
+              <Pressable
+                onPress={() => handleSelect(item.id, item.scale)}
+                accessibilityRole="button"
+                accessibilityState={{ selected: active }}
+                style={[shopStyles.locationButton, active && shopStyles.locationButtonActive]}
+              >
+                <View
+                  style={[
+                    shopStyles.locationIcon,
+                    active && shopStyles.locationIconActive,
+                  ]}
+                >
+                  <VectorIcons
+                    iconFamily="Feather"
+                    name={item.icon}
+                    size={20}
+                    color={active ? '#FFFFFF' : '#16834A'}
+                  />
+                </View>
+
+                <View style={shopStyles.locationTextContainer}>
+                  <Text
+                    style={[
+                      shopStyles.locationTitle,
+                      active && shopStyles.locationTextActive,
+                    ]}
+                  >
+                    {item.title}
+                  </Text>
+
+                  <Text
+                    numberOfLines={1}
+                    style={[
+                      shopStyles.locationSubtitle,
+                      active && shopStyles.locationSubtitleActive,
+                    ]}
+                  >
+                    {item.subtitle}
+                  </Text>
+                </View>
+
+                {active && (
+                  <VectorIcons
+                    iconFamily="Feather"
+                    name="check-circle"
+                    size={17}
+                    color="#FFFFFF"
+                  />
+                )}
+              </Pressable>
+            </Animated.View>
+          );
+        })}
+      </View>
+    </View>
+  );
+};
 
 const ShopsList = () => {
   const [favoriteIds, setFavoriteIds] = useState([]);
@@ -80,6 +194,7 @@ const ShopsList = () => {
           <Ionicons name="options-outline" size={20} color="#333" />
         </View>
       </View>
+      <ShopLocationSelector />
       <View style={shopStyles.list}>
         {ShopsData.map((item) => (
           <React.Fragment key={item.id}>{renderShop({ item })}</React.Fragment>
@@ -92,6 +207,69 @@ const ShopsList = () => {
 const shopStyles = StyleSheet.create({
   container: {
     backgroundColor: '#F7F7F7',
+  },
+  locationContainer: {
+    paddingHorizontal: 16,
+    paddingBottom: 12,
+  },
+  locationHeading: {
+    color: '#202020',
+    fontSize: 16,
+    fontWeight: '700',
+    marginBottom: 10,
+  },
+  locationRow: {
+    flexDirection: 'row',
+    gap: 10,
+  },
+  locationAnimated: {
+    flex: 1,
+  },
+  locationButton: {
+    minHeight: 68,
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingHorizontal: 10,
+    paddingVertical: 9,
+    borderRadius: 14,
+    borderWidth: 1,
+    borderColor: '#E6EAE7',
+    backgroundColor: '#FFFFFF',
+    gap: 8,
+  },
+  locationButtonActive: {
+    backgroundColor: '#16834A',
+    borderColor: '#16834A',
+  },
+  locationIcon: {
+    width: 34,
+    height: 34,
+    borderRadius: 17,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#EAF5EE',
+  },
+  locationIconActive: {
+    backgroundColor: 'rgba(255,255,255,0.18)',
+  },
+  locationTextContainer: {
+    flex: 1,
+  },
+  locationTitle: {
+    color: '#202020',
+    fontSize: 13,
+    fontWeight: '700',
+  },
+  locationTextActive: {
+    color: '#FFFFFF',
+  },
+  locationSubtitle: {
+    color: '#777777',
+    fontSize: 10,
+    marginTop: 3,
+  },
+  locationSubtitleActive: {
+    color: '#E7F4EB',
   },
   header: {
     padding: 18,
