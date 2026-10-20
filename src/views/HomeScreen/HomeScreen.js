@@ -1,16 +1,228 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ScrollView, Image, TouchableOpacity, View, Text, FlatList, Dimensions, Animated } from 'react-native';
+import { ScrollView, Image, TouchableOpacity, View, Text, FlatList, Dimensions, Animated, StyleSheet } from 'react-native';
 import { Container, Spacing, Slider, GradientComponent, VectorIcons, ProductColumn, ProductSmall, HomeHeader, PreviousOrder } from '../../components';
 import { connect } from 'react-redux';
-import { SH, useThemeHelper, BottomTabGap, SCREEN_WIDTH, SW, SF, TopSellingProductData, PreviousOrderData, FreshVeggiesProductData, FreshFruitsProductData, AllBannerData, AllCategoriesData,HomeCategoryShortcuts } from '../../helper';
+import { SH, useThemeHelper, BottomTabGap, SCREEN_WIDTH, SW, SF, TopSellingProductData, PreviousOrderData, FreshVeggiesProductData, FreshFruitsProductData, AllBannerData, AllCategoriesData, HomeCategoryShortcuts, ShopsData } from '../../helper';
 import { Styles, HomeScreenStyle } from '../../styles';
 import { COMMON_PADDING } from '../../constants';
 import images from '../../images';
 import RouteName from '../../routes/RouteName';
 import Reanimated, { useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const { width } = Dimensions.get("window");
+
+const ShopsList = () => {
+  const [favoriteIds, setFavoriteIds] = useState([]);
+
+  const toggleFavorite = (id) => {
+    setFavoriteIds((currentIds) => (
+      currentIds.includes(id)
+        ? currentIds.filter((favoriteId) => favoriteId !== id)
+        : [...currentIds, id]
+    ));
+  };
+
+  const renderShop = ({ item }) => {
+    const isFavorite = favoriteIds.includes(item.id);
+
+    return (
+      <View style={shopStyles.card}>
+        <View>
+          <Image source={{ uri: item.image }} style={shopStyles.image} />
+          <View style={shopStyles.offer}>
+            <Text style={shopStyles.offerText}>{item.offer}</Text>
+          </View>
+          <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityLabel={isFavorite ? `Remove ${item.name} from favorites` : `Add ${item.name} to favorites`}
+            onPress={() => toggleFavorite(item.id)}
+            style={shopStyles.heart}
+          >
+            <Ionicons
+              name={isFavorite ? 'heart' : 'heart-outline'}
+              size={21}
+              color={isFavorite ? '#E94B63' : '#333'}
+            />
+          </TouchableOpacity>
+        </View>
+
+        <View style={shopStyles.details}>
+          <View style={shopStyles.titleRow}>
+            <Text style={shopStyles.name} numberOfLines={1}>{item.name}</Text>
+            <View style={shopStyles.rating}>
+              <Text style={shopStyles.ratingText}>{item.rating}</Text>
+              <Ionicons name="star" size={12} color="#FFFFFF" />
+            </View>
+          </View>
+          <Text style={shopStyles.cuisine} numberOfLines={1}>{item.cuisine}</Text>
+          <View style={shopStyles.infoRow}>
+            <Text style={shopStyles.price}>{item.price}</Text>
+            <View style={shopStyles.delivery}>
+              <Ionicons name="time-outline" size={14} color="#555" />
+              <Text style={shopStyles.time}>{item.time}</Text>
+            </View>
+          </View>
+        </View>
+      </View>
+    );
+  };
+
+  return (
+    <View style={shopStyles.container}>
+      <View style={shopStyles.header}>
+        <View>
+          <Text style={shopStyles.heading}>Shops</Text>
+          <Text style={shopStyles.subtitle}>Discover great finds near you</Text>
+        </View>
+        <View style={shopStyles.filter}>
+          <Ionicons name="options-outline" size={20} color="#333" />
+        </View>
+      </View>
+      <View style={shopStyles.list}>
+        {ShopsData.map((item) => (
+          <React.Fragment key={item.id}>{renderShop({ item })}</React.Fragment>
+        ))}
+      </View>
+    </View>
+  );
+};
+
+const shopStyles = StyleSheet.create({
+  container: {
+    backgroundColor: '#F7F7F7',
+  },
+  header: {
+    padding: 18,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  heading: {
+    fontSize: 25,
+    fontWeight: '800',
+    color: '#202020',
+  },
+  subtitle: {
+    color: '#777',
+    fontSize: 13,
+    marginTop: 5,
+  },
+  filter: {
+    backgroundColor: '#FFF',
+    padding: 12,
+    borderRadius: 12,
+    borderWidth: 1,
+    borderColor: '#EEE',
+  },
+  list: {
+    paddingHorizontal: 15,
+    paddingBottom: 25,
+  },
+  card: {
+    backgroundColor: '#FFF',
+    borderRadius: 18,
+    marginBottom: 18,
+    overflow: 'hidden',
+    borderWidth: 1,
+    borderColor: '#EEEEEE',
+    elevation: 2,
+    shadowColor: '#000',
+    shadowOpacity: 0.07,
+    shadowRadius: 7,
+    shadowOffset: { width: 0, height: 3 },
+  },
+  image: {
+    width: '100%',
+    height: 190,
+    resizeMode: 'cover',
+    backgroundColor: '#EEE',
+  },
+  offer: {
+    position: 'absolute',
+    bottom: 12,
+    left: 0,
+    backgroundColor: '#2563EB',
+    paddingHorizontal: 11,
+    paddingVertical: 7,
+    borderTopRightRadius: 6,
+    borderBottomRightRadius: 6,
+  },
+  offerText: {
+    color: '#FFF',
+    fontWeight: '700',
+    fontSize: 12,
+  },
+  heart: {
+    position: 'absolute',
+    top: 12,
+    right: 12,
+    backgroundColor: '#FFFFFFE8',
+    borderRadius: 22,
+    width: 38,
+    height: 38,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  details: {
+    padding: 14,
+  },
+  titleRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    gap: 8,
+  },
+  name: {
+    flex: 1,
+    fontSize: 18,
+    fontWeight: '800',
+    color: '#222',
+  },
+  rating: {
+    backgroundColor: '#16834A',
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    paddingHorizontal: 7,
+    paddingVertical: 5,
+    borderRadius: 7,
+  },
+  ratingText: {
+    color: '#FFF',
+    fontWeight: '800',
+    fontSize: 12,
+  },
+  cuisine: {
+    fontSize: 13,
+    color: '#777',
+    marginTop: 8,
+  },
+  infoRow: {
+    marginTop: 13,
+    paddingTop: 11,
+    borderTopWidth: 1,
+    borderTopColor: '#F0F0F0',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  price: {
+    fontSize: 13,
+    color: '#555',
+  },
+  delivery: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+  },
+  time: {
+    fontSize: 12,
+    fontWeight: '600',
+    color: '#444',
+  },
+});
 
 const AnimatedHomeCategoryShortcut = ({ item, active, styles, onPress }) => {
   const scale = useSharedValue(1);
@@ -287,6 +499,10 @@ const HomeScreen = (props) => {
           />
         </View>
 
+        {activeShortcutId && activeShortcutId !== 'home' ? (
+          <ShopsList />
+        ) : (
+        <>
         {/* Header Start */}
         <View style={[Style.paddingHorizontalCommon]}>
           <View style={styles.commonHeaderView}>
@@ -523,6 +739,8 @@ const HomeScreen = (props) => {
           />
         </View>
       <Spacing space={SH(tabHeight)} />
+        </>
+        )}
 
       </ScrollView>
     </Container>
