@@ -194,7 +194,6 @@ const ShopsList = () => {
           <Ionicons name="options-outline" size={20} color="#333" />
         </View>
       </View>
-      <ShopLocationSelector />
       <View style={shopStyles.list}>
         {ShopsData.map((item) => (
           <React.Fragment key={item.id}>{renderShop({ item })}</React.Fragment>
@@ -662,6 +661,8 @@ const HomeScreen = (props) => {
           />
           <Spacing space={SH(5)} />
         </View>
+
+        <ShopLocationSelector />
 
         {/* Home category shortcuts */}
         <View style={styles.homeCategoryShortcutList}>
