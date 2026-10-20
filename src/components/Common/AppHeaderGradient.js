@@ -38,7 +38,7 @@ function AppHeaderGradient(props) {
     >
       <View style={style.safeAreaView}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
-          <VectorIcon iconFamily="AntDesign" name="arrowleft" color={colors.black} size={SF(20)} />
+          <VectorIcon iconFamily="Ionicons" name="arrow-back" color={colors.black} size={SF(20)} />
         </TouchableOpacity>
         {props.children &&
           <View style={[CommonStyle.appHeaderTextView, { paddingRight: 0 }]}>
@@ -48,7 +48,7 @@ function AppHeaderGradient(props) {
           </View>
         }
         <TouchableOpacity onPress={() => navigation.navigate(RouteName.BOTTOM_TAB_NAVIGATOR, { screen: RouteName.MY_CART_SCREEN })}>
-          <VectorIcon iconFamily="Feather" name="shopping-cart" color={colors.black} size={SF(20)} />
+          <VectorIcon iconFamily="Ionicons" name="cart-outline" color={colors.black} size={SF(20)} />
         </TouchableOpacity>
 
       </View>

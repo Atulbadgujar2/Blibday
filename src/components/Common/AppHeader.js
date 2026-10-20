@@ -22,7 +22,7 @@ function AppHeader(props) {
         style={[CommonStyle.appHeaderMainView, props?.spaceHorizontal && CommonStyle.paddingHorizontalHeader]}>
 
         <TouchableOpacity onPress={() => navigation.goBack()} style={[CommonStyle.appHeaderIconView]}>
-          <VectorIcon iconFamily="AntDesign" name="arrowleft" color={colors.black_to_white_color} size={SF(20)} />
+          <VectorIcon iconFamily="Ionicons" name="arrow-back" color={colors.black_to_white_color} size={SF(20)} />
         </TouchableOpacity>
         {props.children &&
           <View style={[CommonStyle.appHeaderTextView, ifCart && { paddingRight: 0 }]}>
@@ -31,7 +31,7 @@ function AppHeader(props) {
         }
         {ifCart &&
           <TouchableOpacity onPress={() => navigation.navigate(RouteName.BOTTOM_TAB_NAVIGATOR,{screen:RouteName.MY_CART_SCREEN})}>
-            <VectorIcon iconFamily="Feather" name="shopping-cart" color={colors.black} size={SF(20)} />
+            <VectorIcon iconFamily="Ionicons" name="cart-outline" color={colors.black} size={SF(20)} />
           </TouchableOpacity>
         }
 
