@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useLayoutEffect, useRef } from 'react';
 import { ScrollView, Image, TouchableOpacity, View, Text, FlatList, Dimensions, Animated } from 'react-native';
 import { Container, Spacing, Slider, GradientComponent, VectorIcons, ProductColumn, ProductSmall, HomeHeader, PreviousOrder } from '../../components';
 import { connect } from 'react-redux';
@@ -7,14 +7,86 @@ import { Styles, HomeScreenStyle } from '../../styles';
 import { COMMON_PADDING } from '../../constants';
 import images from '../../images';
 import RouteName from '../../routes/RouteName';
+import Reanimated, { interpolateColor, useAnimatedProps, useAnimatedStyle, useSharedValue, withTiming } from 'react-native-reanimated';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get("window");
+const AnimatedMaterialCommunityIcon = Reanimated.createAnimatedComponent(MaterialCommunityIcons);
+
+const AnimatedHomeCategoryShortcut = ({ item, active, styles, onPress }) => {
+  const progress = useSharedValue(active ? 1 : 0);
+  const scale = useSharedValue(1);
+
+  useLayoutEffect(() => {
+    progress.value = active ? 1 : 0;
+  }, [active, progress]);
+
+  const iconCircleStyle = useAnimatedStyle(() => ({
+    backgroundColor: interpolateColor(progress.value, [0, 1], [item.tint, item.color]),
+    borderColor: interpolateColor(progress.value, [0, 1], [item.color, item.color]),
+    elevation: progress.value * 4,
+    shadowOpacity: progress.value * 0.18,
+  }));
+
+  const shortcutStyle = useAnimatedStyle(() => ({
+    transform: [{ scale: scale.value }],
+  }));
+
+  const iconAnimatedProps = useAnimatedProps(() => ({
+    color: interpolateColor(progress.value, [0, 1], [item.color, '#FFFFFF']),
+  }));
+
+  const labelStyle = useAnimatedStyle(() => ({
+    color: interpolateColor(progress.value, [0, 1], ['#68716C', item.color]),
+  }));
+
+  return (
+    <TouchableOpacity
+      activeOpacity={0.9}
+      onPressIn={() => {
+        scale.value = withTiming(0.94, { duration: 100 });
+      }}
+      onPressOut={() => {
+        scale.value = withTiming(1, { duration: 170 });
+      }}
+      onPress={onPress}
+      accessibilityRole="button"
+      accessibilityState={{ selected: active }}
+      accessibilityLabel={item.name}
+    >
+      <Reanimated.View style={[styles.homeCategoryShortcut, shortcutStyle]}>
+        <Reanimated.View
+          style={[
+            styles.homeCategoryShortcutIconCircle,
+            { shadowColor: item.color },
+            iconCircleStyle,
+          ]}
+        >
+          <AnimatedMaterialCommunityIcon
+            name={item.icon}
+            size={SF(27)}
+            color={item.color}
+            animatedProps={iconAnimatedProps}
+          />
+        </Reanimated.View>
+        <Reanimated.Text
+          numberOfLines={1}
+          style={[styles.homeCategoryShortcutLabel, labelStyle]}
+        >
+          {item.name}
+        </Reanimated.Text>
+      </Reanimated.View>
+    </TouchableOpacity>
+  );
+};
+
 const HomeScreen = (props) => {
   const { navigation } = props;
   const { colors } = useThemeHelper();
   const Style = Styles(colors)
   const styles = HomeScreenStyle(colors)
   const [search, setSearch] = useState("");
+  const [activeShortcutId, setActiveShortcutId] = useState(null);
   const tabHeight = BottomTabGap();
   const flatListRef = useRef(null);
   const ITEM_WIDTH = width * 0.55;
@@ -184,23 +256,14 @@ const HomeScreen = (props) => {
   };
 
   const renderHomeCategoryShortcut = ({ item }) => (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      onPress={() => navigation.navigate(RouteName.CATEGORY_SCREEN)}
-      style={styles.homeCategoryShortcut}
-    >
-      <View style={[styles.homeCategoryShortcutIconCircle, { backgroundColor: item.tint }]}>
-        <VectorIcons
-          iconFamily="Feather"
-          name={item.icon}
-          size={SF(23)}
-          color={item.color}
-        />
-      </View>
-      <Text style={styles.homeCategoryShortcutLabel} numberOfLines={1}>
-        {item.name}
-      </Text>
-    </TouchableOpacity>
+    <AnimatedHomeCategoryShortcut
+      item={item}
+      active={activeShortcutId === item.id}
+      styles={styles}
+      onPress={() => {
+        setActiveShortcutId(item.id);
+      }}
+    />
   );
 
   return (
